@@ -10,7 +10,9 @@ def submit_data():
     mobile = data.get('mobile')
     email = data.get('email')
 
-    print(f"Received DATA -> Name: {name}, Age: {age}, Mobile: {mobile}, Email: {email}")
+    line = f"{name}, {age}, {mobile}, {email}\n"
+    with open('data.txt', 'a') as far:
+        far.write(line)
 
     return jsonify({
         "status": "success",
