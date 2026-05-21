@@ -1,4 +1,4 @@
-# Assing
+# Assing Project
 
 **Assing** is a full-stack web application with [Flask](https://flask.palletsprojects.com/) backend for data-centric operations and an [Express.js](https://expressjs.com/) frontend for dynamic routing and UI management.
 
