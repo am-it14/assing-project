@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: assing-backend
+  namespace: assing
+spec:
+  selector:
+    matchLabels:
+      app: assing-backend
+  template:
+    metadata:
+      labels:
+        app: assing-backend
+    spec:
+      containers:
+      - name: assing-backend
+        image: docker.io/voidmt/assing-backend:latest
+        resources:
+        ports:
+        - containerPort: 8000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: assing-backend
+  namespace: assing
+spec:
+  selector:
+    app: assing-backend
+  ports:
+  - port: 80
+    targetPort: 8000

@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: assing-frontend
+  namespace: assing
+spec:
+  selector:
+    matchLabels:
+      app: assing-frontend
+  template:
+    metadata:
+      labels:
+        app: assing-frontend
+    spec:
+      containers:
+      - name: assing-frontend
+        image: docker.io/voidmt/assing-frontend:latest
+        ports:
+        - containerPort: 3000
+        env:
+        - name: BACKEND_URL
+          value: http://assing-backend.assing.svc.cluster.local/api
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: assing-frontend
+  namespace: assing
+spec:
+  selector:
+    app: assing-frontend
+  ports:
+  - port: 80
+    targetPort: 3000
+
+
