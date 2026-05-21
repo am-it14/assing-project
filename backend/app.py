@@ -1,6 +1,20 @@
-from flask import Flask, request, jsonify
+from flask import Flask, render_template, render_template_string, request, jsonify
 
 app = Flask(__name__)
+
+@app.route('/')
+def home():
+    html_content = '''<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Backend Page</title>
+</head>
+<body>
+    <h1>Hello From Backend!</h1>
+</body>
+</html>
+'''
+    return render_template_string(html_content)
 
 @app.route('/api/submit', methods=['POST'])
 def submit_data():
