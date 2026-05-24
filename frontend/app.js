@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 
@@ -43,8 +44,10 @@ app.post('/submit', async (req, res) => {
         `);
 
     } catch (error) {
-        console.error("Error Occured");
-    }
+    console.error(error);
+
+    res.status(500).send(error.message);
+}
 });
 
 // Start the Express server
