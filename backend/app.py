@@ -12,6 +12,12 @@ def home():
 <body>
     <h1>Hello From Backend!</h1>
 </body>
+<style>
+    body {
+        background-color: #000000;
+        color: #FFFF00;
+    }
+</style>
 </html>
 '''
     return render_template_string(html_content)
